@@ -14,9 +14,9 @@ Computer Science &amp; Engineering, Green University of Bangladesh
 
 ---
 
-<img align="right" width="170" src="assets/profile.jpg" alt="Md. Yeasir Arafat" />
-
 ## About Me
+
+<img align="right" width="170" src="assets/profile.jpg" alt="Md. Yeasir Arafat" />
 
 I build **cross-platform mobile applications** and the **intelligence that runs behind them** — from Flutter frontends and FastAPI backends to trained ML models and LLM-driven automation pipelines.
 
