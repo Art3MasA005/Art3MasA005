@@ -22,9 +22,9 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 - 🎓 Final-semester CSE undergraduate at **Green University of Bangladesh**
 - 📱 **Flutter** developer — responsive UI, BLoC / Riverpod / GetX, offline-first local databases
-- 🧠 **ML &amp; AI** — the whole pipeline: dataset curation and leakage auditing, training and fine-tuning in PyTorch and TensorFlow, calibration and honest evaluation, then shipping it — quantized for on-device inference or served behind an API the app actually calls. Classical models too, where they beat the deep ones
-- ⚙️ **AI automation** — multi-agent workflows in **n8n**: LLM-based intent routing, tool-calling against any REST API, webhook and scheduled triggers, persistent memory, and provider-agnostic model selection — with validation, retries and structured logging on every action
-- 🇧🇩 Most of what I build is **Bangladesh-first** — bilingual UI, offline-first, and validated on local data
+- 🧠 **Machine Learning &amp; AI** — I own the model end to end: data curation, leakage audits, training and fine-tuning in PyTorch and TensorFlow, calibration, then deployment — quantized on-device or served behind an API the app actually calls
+- ⚙️ **AI automation with n8n** — multi-agent workflows: LLM-based intent routing, tool-calling against any REST API, webhook and scheduled triggers, persistent memory, and provider-agnostic model selection — with validation, retries and structured logging on every action
+- 🌍 I build for **hard constraints** — bilingual interfaces, offline-first data, low-end devices, and models validated on the people who actually use them. **Open to remote work worldwide**
 - 🔐 Also work across **cybersecurity**, **data mining**, and **embedded / microcontroller** systems
 - 💬 Ask me about Flutter architecture, model calibration, or wiring an LLM into a mobile app
 
@@ -247,7 +247,9 @@ An interactive mobile app that teaches algorithms through step-by-step visual ex
 
 <div align="center">
 
-**Open to internships, collaborations, and freelance work in Flutter, ML, and AI automation.**
+**Open to remote roles, internships, collaborations and freelance work — worldwide.**
+
+Flutter · Machine Learning · AI Automation
 
 <a href="mailto:yeasir.cse.dev@gmail.com"><img src="https://img.shields.io/badge/Get_in_touch-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
 
