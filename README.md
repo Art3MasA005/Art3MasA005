@@ -22,8 +22,8 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 - 🎓 Final-semester CSE undergraduate at **Green University of Bangladesh**
 - 📱 **Flutter** developer — responsive UI, BLoC / Riverpod / GetX, offline-first local databases
-- 🧠 **ML &amp; AI** — custom datasets, leakage audits, calibration, and on-device deployment; models that hold up outside the training split
-- ⚙️ **AI automation** with **n8n** — multi-agent systems that route intent across email, messaging and calendar APIs
+- 🧠 **ML &amp; AI** — the whole pipeline: dataset curation and leakage auditing, training and fine-tuning in PyTorch and TensorFlow, calibration and honest evaluation, then shipping it — quantized for on-device inference or served behind an API the app actually calls. Classical models too, where they beat the deep ones
+- ⚙️ **AI automation** — multi-agent workflows in **n8n**: LLM-based intent routing, tool-calling against any REST API, webhook and scheduled triggers, persistent memory, and provider-agnostic model selection — with validation, retries and structured logging on every action
 - 🇧🇩 Most of what I build is **Bangladesh-first** — bilingual UI, offline-first, and validated on local data
 - 🔐 Also work across **cybersecurity**, **data mining**, and **embedded / microcontroller** systems
 - 💬 Ask me about Flutter architecture, model calibration, or wiring an LLM into a mobile app
