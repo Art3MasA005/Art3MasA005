@@ -77,10 +77,8 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 ![REST API](https://img.shields.io/badge/REST_API-005571?style=flat-square&logo=json&logoColor=white)
 ![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=flat-square&logo=graphql&logoColor=white)
-![gRPC](https://img.shields.io/badge/gRPC-244C5A?style=flat-square)
 ![WebSocket](https://img.shields.io/badge/WebSocket-010101?style=flat-square&logo=socketdotio&logoColor=white)
 ![Webhooks](https://img.shields.io/badge/Webhooks-2C3E50?style=flat-square)
-![SOAP](https://img.shields.io/badge/SOAP-8C4A9C?style=flat-square&logo=xml&logoColor=white)
 
 **Backend &amp; Data**
 
