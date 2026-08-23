@@ -121,7 +121,7 @@ Eleven questions, no blood test, about two minutes — and back comes a **calibr
 
 > Not a medical device. It does not diagnose or treat anything and has been reviewed by no medical regulator.
 
-🔗 [Repository](https://github.com/Art3MasA005/DiaVision-Diabetes-Deases-Prediction-using-machine-Learning)
+🔗 [Repository](https://github.com/Art3MasA005/DiaVision)
 
 ---
 
