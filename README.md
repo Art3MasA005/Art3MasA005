@@ -7,6 +7,7 @@
 Computer Science &amp; Engineering, Green University of Bangladesh
 
 <a href="https://github.com/Art3MasA005"><img src="https://img.shields.io/badge/GitHub-Art3MasA005-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+<a href="https://www.linkedin.com/in/md-yeasir-arafat-91b6a7430/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 <a href="mailto:yeasir.cse.dev@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
 
 </div>
