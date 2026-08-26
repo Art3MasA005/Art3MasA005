@@ -153,7 +153,7 @@ A modular, **agent-based AI assistant** that receives messages from Telegram, Wh
 
 **Cost-aware model routing:** frontier models for reasoning, smaller fast models for structured field extraction — quality where it matters, latency and cost where it doesn't. Tested across unit, integration, system, acceptance, performance, security and regression layers.
 
-📄 [Full Project Report](https://drive.google.com/file/d/1vQR6YQ7c2pFFPNDjFy3J1_MfHtqIAtVH/view?usp=sharing) · *Integrated Design Project II, Fall 2025 — team of 3, supervised by Ms. Fatema Tuj Johora*
+📄 [Full Project Report](https://drive.google.com/file/d/1vQR6YQ7c2pFFPNDjFy3J1_MfHtqIAtVH/view?usp=sharing) · *Integrated Design Project II, Fall 2025 — supervised by Ms. Fatema Tuj Johora*
 
 ---
 
