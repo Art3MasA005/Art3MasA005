@@ -6,6 +6,7 @@
 
 Computer Science &amp; Engineering, Green University of Bangladesh
 
+<a href="https://codewithyeasir.vercel.app"><img src="https://img.shields.io/badge/Portfolio-Visit-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
 <a href="https://github.com/Art3MasA005"><img src="https://img.shields.io/badge/GitHub-Art3MasA005-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
 <a href="https://www.linkedin.com/in/md-yeasir-arafat-91b6a7430/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 <a href="mailto:yeasir.cse.dev@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
@@ -257,6 +258,7 @@ An interactive mobile app that teaches algorithms through step-by-step visual ex
 
 Flutter · Machine Learning · AI Automation
 
+<a href="https://codewithyeasir.vercel.app"><img src="https://img.shields.io/badge/View_portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
 <a href="mailto:yeasir.cse.dev@gmail.com"><img src="https://img.shields.io/badge/Get_in_touch-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
 
 </div>
