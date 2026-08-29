@@ -110,6 +110,22 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 ---
 
+## Research
+
+### 🧬 Anatomy-Aware Supervision for Critical Organ Segmentation with Transformer-Based Networks
+
+`Python` `PyTorch` `Pyramid Vision Transformer` `Medical Imaging`
+
+*Undergraduate thesis · Spring 2026 – Winter 2026 · supervised by Riad Hassan*
+
+Building a **Pyramid Vision Transformer (PVT)** based medical image segmentation framework, trained and evaluated on the **Synapse** multi-organ dataset.
+
+The question the thesis asks: most segmentation losses score every voxel independently, which is why the numbers look fine while the organ boundaries do not. I am investigating **anatomy-aware supervision** — using anatomical structure as a training signal — to improve both segmentation accuracy and boundary quality on critical abdominal organs.
+
+Complete preprocessing, training and evaluation pipelines implemented.
+
+---
+
 ## Featured Projects
 
 ### 🔎 Bulletin — Bilingual Document Retrieval for Universities
@@ -118,7 +134,7 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 An institution publishes its academic calendar, exam routines, fee schedules and notices once. Students and teachers ask in **English or Bangla** — optionally attaching their own class routine — and get answers grounded strictly in those documents, **with the page to prove every one**.
 
-**The thesis** — language mismatch between question and source is a *silent* retrieval failure. Hybrid search fuses a dense arm with a lexical arm; an English query and a Bangla chunk share **zero tokens**, so the lexical arm returns empty and search quietly collapses to dense alone — precisely where dense is least reliable, because Bangla PDFs in this region often use legacy ASCII-mapped fonts that extract as garbage. No exception, no warning, just a confident "not found."
+**The problem** — language mismatch between question and source is a *silent* retrieval failure. Hybrid search fuses a dense arm with a lexical arm; an English query and a Bangla chunk share **zero tokens**, so the lexical arm returns empty and search quietly collapses to dense alone — precisely where dense is least reliable, because Bangla PDFs in this region often use legacy ASCII-mapped fonts that extract as garbage. No exception, no warning, just a confident "not found."
 
 Two mitigations are implemented and measured against each other: a shared cross-lingual embedding space, and query translation that buys the lexical arm back for one round trip.
 
@@ -137,7 +153,7 @@ Two mitigations are implemented and measured against each other: a shared cross-
 - **Chat attachments never enter the vector index.** The `attachments` table has no embedding column, so one student's personal routine can never be retrieved for another student's query.
 - **Below the retrieval score floor, the LLM is never called.** The plan returned in that case carries no messages — there is nothing to send.
 
-*Status: in-progress thesis project. Backend pipeline, retrieval and streaming are complete and tested; the comparative ablation that constitutes the thesis result is blocked on a real bilingual corpus — and the repo says so rather than hiding it.*
+*Status: in progress. Backend pipeline, retrieval and streaming are complete and tested; the comparative ablation that would settle which mitigation wins is blocked on a real bilingual corpus — and the repo says so rather than hiding it.*
 
 🔗 [Repository](https://github.com/Art3MasA005/Bulletin)
 
