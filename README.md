@@ -25,6 +25,7 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 - 📱 **Flutter** developer — responsive UI, BLoC / Riverpod / GetX, offline-first local databases
 - 🧠 **Machine Learning &amp; AI** — I own the model end to end: data curation, leakage audits, training and fine-tuning in PyTorch and TensorFlow, calibration, then deployment — quantized on-device or served behind an API the app actually calls
 - ⚙️ **AI automation with n8n** — multi-agent workflows: LLM-based intent routing, tool-calling against any REST API, webhook and scheduled triggers, persistent memory, and provider-agnostic model selection — with validation, retries and structured logging on every action
+- 🔎 **Retrieval systems** — bilingual RAG over real documents: hybrid dense + lexical search on pgvector, reciprocal rank fusion, reranking, page-level citations, and a score floor that refuses rather than inventing an answer
 - 🌍 I build for **hard constraints** — bilingual interfaces, offline-first data, low-end devices, and models validated on the people who actually use them. **Open to remote work worldwide**
 - 🔐 Also work across **cybersecurity**, **data mining**, and **embedded / microcontroller** systems
 - 💬 Ask me about Flutter architecture, model calibration, or wiring an LLM into a mobile app
@@ -61,11 +62,14 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
 ![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat-square&logo=python&logoColor=white)
-![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white)
 
 *Custom datasets · leakage audits · probability calibration · quantization for on-device inference*
 
-**LLM Platforms**
+**LLM &amp; Retrieval**
+
+![RAG](https://img.shields.io/badge/RAG-1F6FEB?style=flat-square)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
+![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white)
 
 ![Claude](https://img.shields.io/badge/Claude-D97757?style=flat-square&logo=anthropic&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
@@ -73,6 +77,8 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 ![Groq](https://img.shields.io/badge/Groq-F55036?style=flat-square&logo=groq&logoColor=white)
 ![Grok](https://img.shields.io/badge/Grok-000000?style=flat-square&logo=x&logoColor=white)
 ![OpenRouter](https://img.shields.io/badge/OpenRouter-6566F1?style=flat-square&logo=openrouter&logoColor=white)
+
+*Hybrid dense + lexical retrieval · reciprocal rank fusion · reranking · cross-lingual embeddings · grounded answers with page-level citations*
 
 **APIs &amp; Protocols**
 
@@ -86,6 +92,7 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![pgvector](https://img.shields.io/badge/pgvector-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
@@ -104,6 +111,37 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 ---
 
 ## Featured Projects
+
+### 🔎 Bulletin — Bilingual Document Retrieval for Universities
+
+`FastAPI` `PostgreSQL/pgvector` `Flutter` `RAG`
+
+An institution publishes its academic calendar, exam routines, fee schedules and notices once. Students and teachers ask in **English or Bangla** — optionally attaching their own class routine — and get answers grounded strictly in those documents, **with the page to prove every one**.
+
+**The thesis** — language mismatch between question and source is a *silent* retrieval failure. Hybrid search fuses a dense arm with a lexical arm; an English query and a Bangla chunk share **zero tokens**, so the lexical arm returns empty and search quietly collapses to dense alone — precisely where dense is least reliable, because Bangla PDFs in this region often use legacy ASCII-mapped fonts that extract as garbage. No exception, no warning, just a confident "not found."
+
+Two mitigations are implemented and measured against each other: a shared cross-lingual embedding space, and query translation that buys the lexical arm back for one round trip.
+
+**What has actually been measured**
+
+| | |
+|---|---|
+| Cross-lingual top-1 rank accuracy (20 domain pairs) | **100%**, cosine margin **+0.386** |
+| Hybrid ablation | dense owns prose (MRR 0.98) · lexical owns course codes (0.94) · only the fusion never loses a document |
+| Gold set, 62 questions | **15/15** unanswerable refused · **0** answers invented a fact |
+| Tests | 363 backend · 35 Flutter |
+
+**Correctness enforced structurally, not by convention**
+
+- **The audience filter lives in the SQL, not in post-processing.** Post-filtering leaks through the not-found boundary — a student learns a teacher-scoped document exists from the shape of the refusal. A test asserts the `WHERE` clause precedes the `ORDER BY`.
+- **Chat attachments never enter the vector index.** The `attachments` table has no embedding column, so one student's personal routine can never be retrieved for another student's query.
+- **Below the retrieval score floor, the LLM is never called.** The plan returned in that case carries no messages — there is nothing to send.
+
+*Status: in-progress thesis project. Backend pipeline, retrieval and streaming are complete and tested; the comparative ablation that constitutes the thesis result is blocked on a real bilingual corpus — and the repo says so rather than hiding it.*
+
+🔗 [Repository](https://github.com/Art3MasA005/Bulletin)
+
+---
 
 ### 🩺 DiaVision — Diabetes Risk Screening
 
