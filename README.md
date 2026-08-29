@@ -21,7 +21,7 @@ Computer Science &amp; Engineering, Green University of Bangladesh
 
 I build **cross-platform mobile applications** and the **intelligence that runs behind them** — from Flutter frontends and FastAPI backends to trained ML models and LLM-driven automation pipelines.
 
-- 🎓 Final-semester CSE undergraduate at **Green University of Bangladesh**
+- 🎓 **BSc in Computer Science &amp; Engineering** — Green University of Bangladesh, 2022 – 2026 *(final semester)*
 - 📱 **Flutter** developer — responsive UI, BLoC / Riverpod / GetX, offline-first local databases
 - 🧠 **Machine Learning &amp; AI** — I own the model end to end: data curation, leakage audits, training and fine-tuning in PyTorch and TensorFlow, calibration, then deployment — quantized on-device or served behind an API the app actually calls
 - ⚙️ **AI automation with n8n** — multi-agent workflows: LLM-based intent routing, tool-calling against any REST API, webhook and scheduled triggers, persistent memory, and provider-agnostic model selection — with validation, retries and structured logging on every action
@@ -269,15 +269,9 @@ An interactive mobile app that teaches algorithms through step-by-step visual ex
 
 </details>
 
-## Education
+## Coursework
 
-| Degree | Institution | Year | Result |
-|---|---|---|---|
-| **BSc in Computer Science &amp; Engineering** | Green University of Bangladesh | 2022 – 2026 *(final semester)* | — |
-| Higher Secondary Certificate | Rajshahi Court College | 2020 | GPA 5.00 |
-| Secondary School Certificate | Gogram High School &amp; College | 2018 | GPA 4.72 |
-
-**Coursework:** `Object-Oriented Programming` · `Data Structures` · `Algorithms` · `Operating Systems` · `Computer Architecture` · `Microprocessor & Microcontroller` · `Computer Networking` · `Data Communication` · `Cyber Security` · `Machine Learning` · `Data Mining` · `Artificial Intelligence` · `Integrated System Design` · `Database Systems`
+`Object-Oriented Programming` · `Data Structures` · `Algorithms` · `Operating Systems` · `Computer Architecture` · `Microprocessor & Microcontroller` · `Computer Networking` · `Data Communication` · `Cyber Security` · `Machine Learning` · `Data Mining` · `Artificial Intelligence` · `Integrated System Design` · `Database Systems`
 
 ## GitHub Stats
 
