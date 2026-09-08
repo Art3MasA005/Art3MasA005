@@ -110,22 +110,6 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 ---
 
-## Research
-
-### 🧬 Anatomy-Aware Supervision for Critical Organ Segmentation with Transformer-Based Networks
-
-`Python` `PyTorch` `Pyramid Vision Transformer` `Medical Imaging`
-
-*Undergraduate thesis · Spring 2026 – Winter 2026 · supervised by Riad Hassan*
-
-Building a **Pyramid Vision Transformer (PVT)** based medical image segmentation framework, trained and evaluated on the **Synapse** multi-organ dataset.
-
-The question the thesis asks: most segmentation losses score every voxel independently, which is why the numbers look fine while the organ boundaries do not. I am investigating **anatomy-aware supervision** — using anatomical structure as a training signal — to improve both segmentation accuracy and boundary quality on critical abdominal organs.
-
-Complete preprocessing, training and evaluation pipelines implemented.
-
----
-
 ## Featured Projects
 
 ### 🔎 Bulletin — Bilingual Document Retrieval for Universities
@@ -235,14 +219,23 @@ Most plant-disease projects report 99% on PlantVillage and stop. That number is 
 
 ---
 
-### 📒 Ledgerly — Small Business Finance Manager
+### 📒 Ledgerly — Small Business Finance Manager (v2.0.1)
 
-`Flutter` `Riverpod` `Drift/SQLite` `Supabase`
+`Flutter 3.x` `Riverpod 3.x` `Drift/SQLite` `Firebase Suite` `Clean Architecture`
 
-An **offline-first** ledger app for shop keepers, mobile sellers and wholesalers in Bangladesh — sales, dues, expenses and reports without depending on a connection. Credit/debit entries with partial payments and running receivable/payable balances, Drift/SQLite locally with Supabase cloud sync, bilingual UI.
+An **offline-first** digital accounting and business ledger mobile application engineered for SMEs, retailers, and wholesalers in Bangladesh — enabling complete credit/debit bookkeeping, cash reconciliation, and instant invoicing without requiring an active internet connection.
+
+**What's new in Version 2.0.1:**
+
+- **Firebase Cloud Suite & Auto-Sync Engine:** Powered by Firebase Authentication (Google OAuth, Phone/Email OTP) with strict credential and multi-user database isolation. Background Cloud Firestore synchronization tracks real-time progress (0%–100%) with automated network recovery.
+- **Dual Due Ledger (Customer & Supplier):** Structured *Taka Pabo* (receivables) and *Taka Debo* (payables) books featuring an embedded transaction calculator keypad, camera/gallery voucher attachments, and one-tap PDF ledger statements.
+- **Cashbox & Direct Drawer Reconciliation:** Inflow/outflow tracking with an interactive bottom-sheet reconciliation flow matching physical drawer cash with digital tallies, backed by an immutable audit trail timeline.
+- **Digital Invoicing & Thermal Printing:** Professional memo generator with automated multi-item calculations, VAT/tax, flat/percentage discounts, and Bluetooth ESC/POS thermal printer + PDF export support.
+- **Apple Crystal Glassmorphism UI:** Ergonomic 36px curved side drawer, dynamic liquid `BackdropFilter` frosted glass, specular highlights, and signature Ledgerly Pro metallic card with active unlimited feature status.
+- **Business Growth Analytics:** Visual financial dashboards powered by `fl_chart` with multi-timeframe performance metrics (Daily, Weekly, Monthly, Yearly) and receivable-to-payable ratio monitoring.
+- **Direct Helpline & WhatsApp Integration:** One-tap native dialer for hotline support (`09638607836`) and direct WhatsApp customer support integration (`+8801783181525`), alongside a seamless Bengali (বাংলা) & English localization toggle.
 
 🔗 [Repository](https://github.com/Art3MasA005/Ledgerly-Business-Finance-Manager)
-
 ---
 
 ### 🔐 SafeText — AES &amp; RSA Secure Messaging
@@ -284,6 +277,24 @@ An interactive mobile app that teaches algorithms through step-by-step visual ex
 - **Flutter ToDo App** — task manager with local persistence
 
 </details>
+
+---
+
+## Research
+
+### 🧬 Anatomy-Aware Supervision for Critical Organ Segmentation with Transformer-Based Networks
+
+`Python` `PyTorch` `Pyramid Vision Transformer` `Medical Imaging`
+
+*Undergraduate thesis · Spring 2026 – Winter 2026 · supervised by Riad Hassan*
+
+Building a **Pyramid Vision Transformer (PVT)** based medical image segmentation framework, trained and evaluated on the **Synapse** multi-organ dataset.
+
+The question the thesis asks: most segmentation losses score every voxel independently, which is why the numbers look fine while the organ boundaries do not. I am investigating **anatomy-aware supervision** — using anatomical structure as a training signal — to improve both segmentation accuracy and boundary quality on critical abdominal organs.
+
+Complete preprocessing, training and evaluation pipelines implemented.
+
+---
 
 ## Coursework
 
