@@ -112,6 +112,29 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 ## Featured Projects
 
+### 🛡️ SentinelAI — Intrusion Detection Under Drift and Unseen Attacks
+
+`Python` `FastAPI` `scikit-learn` `LightGBM` `PyTorch` `Flutter`
+
+Intrusion detectors are trained once, then meet traffic that drifts and attack types that did not exist at training time — while analysts can label only a small, late fraction of the flows. SentinelAI is a research platform for exactly that setting: it replays **CIC-IDS2017, CSE-CIC-IDS2018 and UNSW-NB15 in time order**, lets a detector adapt on a fixed, delayed label budget, and shows window by window what happened — detections, unknown attacks, drift, model updates and false alarms.
+
+<img src="assets/sentinelai-dashboard.webp" alt="SentinelAI desktop app — dashboard of one replayed run" />
+
+**What it does**
+
+| | |
+|---|---|
+| Open-world detection | Flows far from every known class are flagged *unknown* instead of being forced into a wrong label |
+| Drift monitoring | KS-test and confidence-drop detectors, with the reference window moved forward after each accepted update |
+| Guarded adaptation | Every candidate model must pass a hold-out check before it is deployed; otherwise it is rejected or rolled back |
+| Reproducible experiments | 9 methods, including re-implementations of published baselines · **339 runs** over 3 datasets × 5 seeds · config hash and dataset SHA-256 stored with every run |
+
+**Engineering** — FastAPI + SQLite backend with replay workers and GPU training · Flutter Windows desktop app with 11 pages in light and dark frosted-glass themes · per-user Windows installer, and the app starts and stops its own backend · **94 backend tests, 11 Flutter tests**.
+
+*Status: complete. A conference paper on the adaptation method is under double-blind review, so the repository stays private until the review ends.*
+
+---
+
 ### 🔎 Bulletin — Bilingual Document Retrieval for Universities
 
 `FastAPI` `PostgreSQL/pgvector` `Flutter` `RAG`
