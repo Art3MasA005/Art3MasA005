@@ -242,23 +242,44 @@ Most plant-disease projects report 99% on PlantVillage and stop. That number is 
 
 ---
 
-### 📒 Ledgerly — Small Business Finance Manager (v2.0.1)
+### 📒 Ledgerly — Small Business Ledger for Bangladesh (v2.0.1)
 
-`Flutter 3.x` `Riverpod 3.x` `Drift/SQLite` `Firebase Suite` `Clean Architecture`
+`Flutter` `Riverpod 3` `Drift/SQLite` `Firebase Auth` `Cloud Firestore` `Cloud Functions`
 
-An **offline-first** digital accounting and business ledger mobile application engineered for SMEs, retailers, and wholesalers in Bangladesh — enabling complete credit/debit bookkeeping, cash reconciliation, and instant invoicing without requiring an active internet connection.
+A shopkeeper's credit book (*baki khata*) on the phone. Customers and suppliers, who owes whom, daily cash, invoices and stock — in **Bangla or English**, and fully usable with **no internet connection**. Every entry is written to a local SQLite database first; the cloud is a backup, never a dependency.
 
-**What's new in Version 2.0.1:**
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/home.png" width="190" alt="Ledger home" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/party_ledger.png" width="190" alt="Customer ledger" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/cashbox.png" width="190" alt="Cashbox" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/analytics.png" width="190" alt="Analytics" />
+</p>
 
-- **Firebase Cloud Suite & Auto-Sync Engine:** Powered by Firebase Authentication (Google OAuth, Phone/Email OTP) with strict credential and multi-user database isolation. Background Cloud Firestore synchronization tracks real-time progress (0%–100%) with automated network recovery.
-- **Dual Due Ledger (Customer & Supplier):** Structured *Taka Pabo* (receivables) and *Taka Debo* (payables) books featuring an embedded transaction calculator keypad, camera/gallery voucher attachments, and one-tap PDF ledger statements.
-- **Cashbox & Direct Drawer Reconciliation:** Inflow/outflow tracking with an interactive bottom-sheet reconciliation flow matching physical drawer cash with digital tallies, backed by an immutable audit trail timeline.
-- **Digital Invoicing & Thermal Printing:** Professional memo generator with automated multi-item calculations, VAT/tax, flat/percentage discounts, and Bluetooth ESC/POS thermal printer + PDF export support.
-- **Apple Crystal Glassmorphism UI:** Ergonomic 36px curved side drawer, dynamic liquid `BackdropFilter` frosted glass, specular highlights, and signature Ledgerly Pro metallic card with active unlimited feature status.
-- **Business Growth Analytics:** Visual financial dashboards powered by `fl_chart` with multi-timeframe performance metrics (Daily, Weekly, Monthly, Yearly) and receivable-to-payable ratio monitoring.
-- **Direct Helpline & WhatsApp Integration:** One-tap native dialer for hotline support (`09638607836`) and direct WhatsApp customer support integration (`+8801783181525`), alongside a seamless Bengali (বাংলা) & English localization toggle.
+**What it does**
+
+| | |
+|---|---|
+| Customer & supplier ledger | Running balance per party, cash sales, photo of the paper receipt, built-in calculator keypad |
+| Cashbox | Daily in/out by category, and reconciliation against the cash actually in the drawer |
+| Invoices & statements | Itemised invoices and party statements as A4 PDFs with one shared branded header, ready to share |
+| Stock, notes, analytics | Stock in/out per product, business notes, and growth charts drawn with `CustomPainter` |
+| Multi-business | Several shops in one account, each with its own isolated books |
+| Bilingual | Every screen, amount and date in Bangla or English, switchable at any time |
+
+**Problems worth reading about**
+
+- **A backup that silently stopped working.** A Firestore document is capped at 1 MiB, so a single-document backup works in testing and then quietly stops uploading once a real shop's ledger grows. Backups are now gzip-compressed JSON split into sub-1 MB parts, with photos chunked the same way.
+- **"Couldn't read the cloud" is not "there is no backup."** Treating a network error as an empty cloud starts a blank ledger that then overwrites the real one. Read failures are thrown, never defaulted, and every backup carries an id, so a phone refuses to upload over a backup written by another phone it hasn't seen yet.
+- **Two phones, one account, no ping-pong.** A restore fires the same database-change events as a user edit; without suppression, two phones would keep re-uploading each other's data. Restores are fenced off from the auto-backup trigger.
+- **Shared phones can't leak data.** The local database records which account owns it, and the local backup file is scoped to the signed-in account, so signing in as someone else never surfaces the previous user's books.
+- **Account deletion verified on the server.** A 6-digit code is emailed and checked inside a Cloud Function (10-minute expiry, 5 attempts). The code never reaches the client, and Firestore rules keep the collection closed to the app.
+
+**Engineering** — feature-first structure across 12 modules · Drift schema v8 with migrations · per-user Firestore security rules · **167 automated tests** (unit + widget) passing.
+
+*Status: v2.0.1 is preparing for its first Google Play release; the repository still holds the earlier v1 snapshot until then.*
 
 🔗 [Repository](https://github.com/Art3MasA005/Ledgerly-Business-Finance-Manager)
+
 ---
 
 ### 🔐 SafeText — AES &amp; RSA Secure Messaging
