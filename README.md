@@ -249,10 +249,11 @@ Most plant-disease projects report 99% on PlantVillage and stop. That number is 
 A shopkeeper's credit book (*baki khata*) on the phone. Customers and suppliers, who owes whom, daily cash, invoices and stock — in **Bangla or English**, and fully usable with **no internet connection**. Every entry is written to a local SQLite database first; the cloud is a backup, never a dependency.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/home.png" width="190" alt="Ledger home" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/party_ledger.png" width="190" alt="Customer ledger" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/cashbox.png" width="190" alt="Cashbox" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/analytics.png" width="190" alt="Analytics" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/home.png" width="155" alt="Ledger home" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/party_ledger.png" width="155" alt="Customer ledger" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/cashbox.png" width="155" alt="Cashbox" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/analytics.png" width="155" alt="Analytics" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/menu.png" width="155" alt="Menu" />
 </p>
 
 **What it does**
