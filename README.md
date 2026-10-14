@@ -131,7 +131,7 @@ Intrusion detectors are trained once, then meet traffic that drifts and attack t
 
 **Engineering** — FastAPI + SQLite backend with replay workers and GPU training · Flutter Windows desktop app with 11 pages in light and dark frosted-glass themes · per-user Windows installer, and the app starts and stops its own backend · **94 backend tests, 11 Flutter tests**.
 
-*Status: complete. A conference paper on the adaptation method is under double-blind review, so the repository stays private until the review ends.*
+*Status: complete. A conference paper on the adaptation method is being prepared for a double-blind venue, so the repository stays private until the review ends.*
 
 ---
 
@@ -273,9 +273,8 @@ A shopkeeper's credit book (*baki khata*) on the phone. Customers and suppliers,
 - **"Couldn't read the cloud" is not "there is no backup."** Treating a network error as an empty cloud starts a blank ledger that then overwrites the real one. Read failures are thrown, never defaulted, and every backup carries an id, so a phone refuses to upload over a backup written by another phone it hasn't seen yet.
 - **Two phones, one account, no ping-pong.** A restore fires the same database-change events as a user edit; without suppression, two phones would keep re-uploading each other's data. Restores are fenced off from the auto-backup trigger.
 - **Shared phones can't leak data.** The local database records which account owns it, and the local backup file is scoped to the signed-in account, so signing in as someone else never surfaces the previous user's books.
-- **Account deletion verified on the server.** A 6-digit code is emailed and checked inside a Cloud Function (10-minute expiry, 5 attempts). The code never reaches the client, and Firestore rules keep the collection closed to the app.
 
-**Engineering** — feature-first structure across 12 modules · Drift schema v8 with migrations · per-user Firestore security rules · **167 automated tests** (unit + widget) passing.
+**Engineering** — feature-first structure across 12 modules · Drift schema v8 with migrations · per-user Firestore security rules.
 
 *Status: v2.0.1 is preparing for its first Google Play release; the repository still holds the earlier v1 snapshot until then.*
 
