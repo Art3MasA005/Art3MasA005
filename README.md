@@ -301,16 +301,6 @@ DNA sequence similarity analysis using the **Longest Common Subsequence (LCS)** 
 
 🔗 [Repository](https://github.com/Art3MasA005/DNA_Match--Sequence-Similarity-Tool-using-Longest-Common-Subsequence--LCS-) · 📄 [Report](https://www.overleaf.com/read/svhcnnvncfyv#1fd054)
 
----
-
-### 📚 AlgoTutor — Algorithm Learning App
-
-`Flutter` `Dart`
-
-An interactive mobile app that teaches algorithms through step-by-step visual explanations.
-
-🔗 [Repository](https://github.com/Art3MasA005/AlgoTutor)
-
 <details>
 <summary><b>More projects</b></summary>
 
