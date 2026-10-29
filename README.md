@@ -199,17 +199,7 @@ Eleven questions, no blood test, about two minutes — and back comes a **calibr
 
 A **full-stack, self-hosted AI assistant** that runs on a personal Windows PC and an Android phone simultaneously. Talk to it by text or voice, in English, Bangla or a mix of both — it controls both devices, automates Google Workspace, remembers people and facts, runs routines on its own, and asks before doing anything risky.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/pc-sheets.png" alt="Sora Windows app — creating a Google Sheet from a chat prompt" width="100%" />
-</p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/phone-home.png" width="170" alt="Phone home" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/pc-gmail-draft.png" width="170" alt="Gmail draft on PC" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/pc-routines.png" width="170" alt="Routines screen" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/pc-people.png" width="170" alt="People memory" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/phone-reminder.png" width="170" alt="Reminders on phone" />
-</p>
+<img src="assets/sora-banner.png" alt="Sora — Windows PC app and Android phone side by side" width="100%" />
 
 **What it does**
 
