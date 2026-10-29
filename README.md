@@ -224,9 +224,7 @@ A **full-stack, self-hosted AI assistant** that runs on a personal Windows PC an
 
 **Stack** — FastAPI + PostgreSQL/pgvector backend · Flutter for Android and Windows · Java Android accessibility service for the background phone link · Python PC agent (keyboard, mouse, files, browser, VS Code) · custom ONNX wake-word model · OpenAI-compatible LLM interface (any provider)
 
-*v1.0.7 · 109 commits · private repository*
-
-🔗 [Public repository](https://github.com/Art3MasA005/sora-assistant)
+🔗 [Repository](https://github.com/Art3MasA005/sora-assistant)
 ---
 
 ### 🌾 Crop Doctor BD — On-Device Plant Disease Detection
