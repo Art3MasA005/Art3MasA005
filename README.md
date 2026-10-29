@@ -199,7 +199,7 @@ Eleven questions, no blood test, about two minutes — and back comes a **calibr
 
 A **full-stack, self-hosted AI assistant** that runs on a personal Windows PC and an Android phone simultaneously. Talk to it by text or voice, in English, Bangla or a mix of both — it controls both devices, automates Google Workspace, remembers people and facts, runs routines on its own, and asks before doing anything risky.
 
-<img src="assets/sora-banner.png" alt="Sora — Windows PC app and Android phone side by side" width="100%" />
+<img src="assets/sora_Github.jpg" alt="Sora" width="100%" />
 
 **What it does**
 
