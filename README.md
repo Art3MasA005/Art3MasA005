@@ -193,30 +193,50 @@ Eleven questions, no blood test, about two minutes — and back comes a **calibr
 
 ---
 
-### 🌙 Luna — Multi-Agent Personal AI Assistant
+### 🤖 Sora — Self-Hosted Personal AI Assistant
 
-`n8n` `Python` `Flutter` `MongoDB` `OpenRouter` `Gmail API`
+`Python` `FastAPI` `Flutter` `PostgreSQL` `pgvector` `Android` `Windows`
 
-A modular, **agent-based AI assistant** that receives messages from Telegram, WhatsApp, Messenger or web chat, classifies user intent, and routes each request to a specialist agent that executes real actions through external APIs.
+A **full-stack, self-hosted AI assistant** that runs on a personal Windows PC and an Android phone simultaneously. Talk to it by text or voice, in English, Bangla or a mix of both — it controls both devices, automates Google Workspace, remembers people and facts, runs routines on its own, and asks before doing anything risky.
 
-**Architecture** — `Input → Intent Detection → Agent Routing → Tool/API Execution → Response`
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/pc-sheets.png" alt="Sora Windows app — creating a Google Sheet from a chat prompt" width="100%" />
+</p>
 
-| Module | What it does |
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/phone-home.png" width="170" alt="Phone home" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/pc-gmail-draft.png" width="170" alt="Gmail draft on PC" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/pc-routines.png" width="170" alt="Routines screen" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/pc-people.png" width="170" alt="People memory" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/sora-assistant/main/docs/screenshots/phone-reminder.png" width="170" alt="Reminders on phone" />
+</p>
+
+**What it does**
+
+| Capability | Detail |
 |---|---|
-| **Channel Input** | Normalizes Telegram / WhatsApp / Messenger payloads into one JSON schema |
-| **Orchestrator** | Hybrid router — keyword matching for clear intents, an LLM router prompt for ambiguous ones, emitting structured `intent` + `confidence` |
-| **Luna Core** | Reasoning-heavy conversation on frontier models, with system rules and safety constraints in the prompt |
-| **Email Agent** | Sends, labels, drafts and replies via Gmail API; LLM + rule scoring flags urgent mail and pings Telegram |
-| **Contact Agent** | Schema-strict create / search / update with phone normalization to prevent duplicates |
-| **Voice Module** | Downloads platform audio, transcribes to text, then re-enters the same router pipeline |
-| **Prompt Engineer** | Expands a short prompt into a richer one — style, lighting, composition, negative prompt — before image generation |
-| **Memory** | MongoDB chat memory with TTL retention for short-term conversational context |
-| **Observability** | Every agent logs `requestId, intent, agent, status, error, executionTime` |
+| **Google Workspace** | Read, search, draft and send Gmail · manage Calendar · create Docs, Sheets, Slides · find Drive files · keep a Tasks list |
+| **PC control** | Open apps, browse the web, read and write files, run VS Code tasks, take and crop screenshots, control the clipboard |
+| **Phone control** | Make calls and send texts by contact name, ring the phone, lock the screen, take a screenshot and beam it to the PC |
+| **Routines** | Plain-language triggers: a schedule, an incoming email, a low battery, a web-page change, or a WhatsApp message |
+| **Memory** | Stores people (relation, nickname, number, birthday) and facts, recalled automatically by name |
+| **Voice** | Custom-trained "Hey Sora" wake word in the owner's accent · Whisper STT · Edge TTS · corner orb on the PC |
+| **Approval-first** | Sends, deletes and shutdowns always show the full action and wait — never executes silently |
+| **Cross-device** | Shared clipboard, phone notifications mirrored to the PC as Windows toasts, phone battery and storage visible in the sidebar |
 
-**Cost-aware model routing:** frontier models for reasoning, smaller fast models for structured field extraction — quality where it matters, latency and cost where it doesn't. Tested across unit, integration, system, acceptance, performance, security and regression layers.
+**Engineering decisions worth reading about**
 
-📄 [Full Project Report](https://drive.google.com/file/d/1vQR6YQ7c2pFFPNDjFy3J1_MfHtqIAtVH/view?usp=sharing) · *Integrated Design Project II, Fall 2025 — supervised by Ms. Fatema Tuj Johora*
+- **One LLM loop, two devices.** The agent runs on the PC but can ask the phone to act, and vice versa, over a persistent WebSocket with per-device revocable tokens. The device that owns the action executes it; the other gets the result.
+- **Approval cards are structural, not advisory.** Risky tool calls return an `awaiting_approval` response that the client renders as a blocking card — the tool cannot continue until the owner taps Approve or Reject, even if the LLM tries to call it again.
+- **"Hey Sora" trained on the owner's voice.** The wake-word model is a small ONNX binary trained on recordings in the owner's Bangla-accented English, so it fires reliably in the owner's accent and not on similar English words said by others.
+- **Bilingual end to end.** Every screen, label, error and AI reply is in English or Bangla, switchable at runtime — including the Flutter app on both Android and Windows and every string in the FastAPI backend.
+- **Self-hosted and secret-safe.** All data stays on the owner's machine. Google OAuth tokens are Fernet-encrypted at rest. A gitleaks pre-commit hook blocks any commit that contains a key.
 
+**Stack** — FastAPI + PostgreSQL/pgvector backend · Flutter for Android and Windows · Java Android accessibility service for the background phone link · Python PC agent (keyboard, mouse, files, browser, VS Code) · custom ONNX wake-word model · OpenAI-compatible LLM interface (any provider)
+
+*v1.0.7 · 109 commits · private repository*
+
+🔗 [Public repository](https://github.com/Art3MasA005/sora-assistant)
 ---
 
 ### 🌾 Crop Doctor BD — On-Device Plant Disease Detection
