@@ -363,7 +363,7 @@ Complete preprocessing, training and evaluation pipelines implemented.
 
 <div align="center">
 
-**Open to remote roles, internships, collaborations and freelance work — worldwide.**
+**Open to remote roles, collaborations and freelance work — worldwide.**
 
 Flutter · Machine Learning · AI Automation
 
