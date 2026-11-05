@@ -342,8 +342,8 @@ Complete preprocessing, training and evaluation pipelines implemented.
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=Art3MasA005&show_icons=true&count_private=true&hide_border=true&theme=github_dark&title_color=58a6ff&icon_color=58a6ff" alt="GitHub stats" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Art3MasA005&layout=compact&langs_count=8&hide_border=true&theme=github_dark&title_color=58a6ff" alt="Top languages" />
+<img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Art3MasA005&theme=github_dark" alt="GitHub stats" />
+<img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Art3MasA005&theme=github_dark" alt="Top languages" />
 
 </div>
 
