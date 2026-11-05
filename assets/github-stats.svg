@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="165" viewBox="0 0 350 165" role="img" aria-label="GitHub stats: 2,538 counted commits, 9 pull requests, 1 issues; updated 05 Nov 2026">
+  <rect x="0.5" y="0.5" width="349" height="164" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="17" y="28" fill="#58a6ff" font-family="Segoe UI, Arial, sans-serif" font-size="19">GitHub Stats</text>
+  <path d="M17 39 H333" stroke="#30363d"/>
+  <text x="17" y="89" fill="#e6edf3" font-family="Segoe UI, Arial, sans-serif" font-size="40" font-weight="700">2,538</text>
+  <text x="18" y="109" fill="#8b949e" font-family="Segoe UI, Arial, sans-serif" font-size="12">counted commits, public + private</text>
+  <text x="18" y="137" fill="#c9d1d9" font-family="Segoe UI, Arial, sans-serif" font-size="13">Pull requests: 9   ·   Issues: 1</text>
+  <text x="18" y="156" fill="#8b949e" font-family="Segoe UI, Arial, sans-serif" font-size="10">Updated 05 Nov 2026</text>
+</svg>
