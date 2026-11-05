@@ -355,7 +355,7 @@ Complete preprocessing, training and evaluation pipelines implemented.
 <div align="center">
 
 <img height="165" src="assets/github-stats.svg" alt="GitHub contribution stats" />
-<img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Art3MasA005&theme=github_dark" alt="Top languages" />
+<img height="165" src="assets/top-languages.svg" alt="Top languages by public repository" />
 
 </div>
 
