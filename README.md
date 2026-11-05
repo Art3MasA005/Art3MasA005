@@ -127,7 +127,7 @@ Intrusion detectors are trained once, then meet traffic that drifts and attack t
 
 **Engineering** — FastAPI + SQLite backend with replay workers and GPU training · Flutter Windows desktop app with 11 pages in light and dark frosted-glass themes · per-user Windows installer, and the app starts and stops its own backend · **94 backend tests, 11 Flutter tests**.
 
-*Status: complete. A conference paper on the adaptation method is being prepared for a double-blind venue, so the repository stays private until the review ends.*
+*Status: research platform complete. [Code, experiment plans and reproduction steps](https://github.com/Art3MasA005/sentinelai) are public.*
 
 ---
 
@@ -319,6 +319,18 @@ DNA sequence similarity analysis using the **Longest Common Subsequence (LCS)** 
 ---
 
 ## Research
+
+### 🛡️ NOVA — Novelty-aware, Open-world, Validated Adaptation for Network Intrusion Detection under Delayed and Scarce Labels
+
+`Conference manuscript` `Concept Drift` `Open-Set Recognition` `Active Learning`
+
+*September 2026 · [SentinelAI research code and experiments](https://github.com/Art3MasA005/sentinelai)*
+
+NOVA studies intrusion detection when **new attack classes appear** and analyst labels are scarce and delayed. It combines class-conditional k-NN rejection, recalibration as new classes are learned, novelty-weighted label selection and a hold-out check before deploying a model update.
+
+In chronological replays of **CIC-IDS2017, CSE-CIC-IDS2018 and UNSW-NB15**, NOVA matched the strongest baseline on open-world macro-F1 on both CIC datasets. On CIC-IDS2017, it reduced the benign-traffic false-positive rate to **2.8% versus 4.5%** for the comparable baseline. The evaluation includes **339 reproducible runs** across NOVA and eight comparison methods.
+
+---
 
 ### 🧬 Anatomy-Aware Supervision for Critical Organ Segmentation with Transformer-Based Networks
 
