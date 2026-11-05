@@ -1,4 +1,4 @@
-"""Refresh the profile's dated public-repository language card."""
+"""Refresh the profile's dated language card across all owned repositories."""
 
 import json
 import math
@@ -20,16 +20,24 @@ COLORS = {
     "C": "#777777",
     "Java": "#b07219",
     "C++": "#f34b7d",
+    "Other / none": "#a371f7",
 }
 FALLBACK_COLORS = ("#a371f7", "#3fb950", "#db6d28", "#d29922", "#8b949e")
 
 
-def public_repositories():
+def owned_repositories():
+    identity = subprocess.run(
+        ["gh", "api", "user"], check=True, capture_output=True, text=True
+    )
+    login = json.loads(identity.stdout)["login"]
+    if login != ACCOUNT:
+        raise RuntimeError(f"Signed in as {login}, expected {ACCOUNT}")
+
     repositories = []
     page = 1
     while True:
         result = subprocess.run(
-            ["gh", "api", f"users/{ACCOUNT}/repos?per_page=100&type=owner&page={page}"],
+            ["gh", "api", f"user/repos?affiliation=owner&per_page=100&page={page}"],
             check=True,
             capture_output=True,
             text=True,
@@ -41,14 +49,14 @@ def public_repositories():
         page += 1
 
 
-counts = Counter(
-    repository["language"]
-    for repository in public_repositories()
-    if repository["language"] and not repository["fork"] and repository["name"] != ACCOUNT
-)
+repositories = owned_repositories()
+counts = Counter(repository["language"] for repository in repositories if repository["language"])
 preferred = {name: index for index, name in enumerate(("Python", "Dart", "HTML", "JavaScript", "C"))}
 leaders = sorted(counts.items(), key=lambda pair: (-pair[1], preferred.get(pair[0], 100), pair[0]))[:5]
-total = sum(count for _, count in leaders)
+total = len(repositories)
+other_count = total - sum(count for _, count in leaders)
+if other_count:
+    leaders.append(("Other / none", other_count))
 today = datetime.now(timezone(timedelta(hours=6))).strftime("%d %b %Y")
 
 parts = [
@@ -59,12 +67,12 @@ parts = [
 ]
 
 for index, (language, count) in enumerate(leaders):
-    y = 58 + index * 20
+    y = 56 + index * 17
     color = COLORS.get(language, FALLBACK_COLORS[index % len(FALLBACK_COLORS)])
     parts.extend(
         (
-            f'<rect x="19" y="{y - 9}" width="10" height="10" fill="{color}"/>',
-            f'<text x="39" y="{y}" fill="#c9d1d9" font-family="Segoe UI, Arial, sans-serif" font-size="12">{escape(language)}</text>',
+            f'<rect x="19" y="{y - 8}" width="9" height="9" fill="{color}"/>',
+            f'<text x="38" y="{y}" fill="#c9d1d9" font-family="Segoe UI, Arial, sans-serif" font-size="11">{escape(language)}</text>',
             f'<text x="151" y="{y}" text-anchor="end" fill="#8b949e" font-family="Segoe UI, Arial, sans-serif" font-size="11">{count}</text>',
         )
     )
@@ -90,7 +98,7 @@ for index, (language, count) in enumerate(leaders):
 parts.extend(
     (
         f'<text x="260" y="101" text-anchor="middle" fill="#c9d1d9" font-family="Segoe UI, Arial, sans-serif" font-size="11">{total} repos</text>',
-        f'<text x="18" y="156" fill="#8b949e" font-family="Segoe UI, Arial, sans-serif" font-size="10">Updated {today}</text>',
+        f'<text x="18" y="156" fill="#8b949e" font-family="Segoe UI, Arial, sans-serif" font-size="10">Public + private · Updated {today}</text>',
         '</svg>',
     )
 )
