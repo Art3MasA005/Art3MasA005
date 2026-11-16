@@ -108,15 +108,15 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 ## Featured Projects
 
-### 🌿 AmarPlants — Multi-Vendor Plant Marketplace for Bangladesh
+### 🌿 AmarPlants — Flutter App for a Plant Marketplace in Bangladesh
 
-`Flutter` `Riverpod` `Next.js` `Laravel` `PostgreSQL/PostGIS`
+`Flutter` `Dart` `Riverpod` `go_router` `drift`
 
-> 🔒 **Confidential industry project.** The source code is in a private repository and is not shared. The images below show the public-facing interface only.
+> 🔒 **Confidential industry project.** The source code is in a private repository and is not shared. The image below shows the app's public-facing interface only.
 
-One plant goes by many names: বাগানবিলাস, Bougainvillea, *Bougainvillea glabra*, or a nursery's variety name like Adarna. AmarPlants lets buyers search however they know the plant and buy it from a verified seller nearby. Sellers pay a flat monthly subscription and **no commission**.
+One plant goes by many names: বাগানবিলাস, Bougainvillea, *Bougainvillea glabra*, or a nursery's variety name like Adarna. I built the **Flutter buyer app** for AmarPlants, a multi-vendor plant marketplace: buyers search however they know the plant and buy it from a verified seller nearby.
 
-<img src="assets/amarplants-showcase.webp" alt="AmarPlants website and buyer app" />
+<img src="assets/amarplants-showcase.webp" alt="AmarPlants Flutter buyer app" />
 
 **What it does**
 
@@ -127,7 +127,7 @@ One plant goes by many names: বাগানবিলাস, Bougainvillea, *Bo
 | Deals | Time-limited discounts with a live countdown on each listing |
 | Bilingual | Every screen in Bangla and English, Bangla-first |
 
-**Stack**: Flutter buyer app (Riverpod, go_router, drift), Next.js website with server-rendered catalogue pages, and one Laravel API on PostgreSQL + PostGIS behind all of them.
+**Stack**: Flutter with Riverpod (code generation), go_router and freezed · drift for the cart, wishlist and recent searches on the device · Android-first.
 
 *Status: in active development. Source code private.*
 
