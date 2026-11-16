@@ -108,28 +108,15 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 ## Featured Projects
 
-### 🌿 AmarPlants — Flutter App for a Plant Marketplace in Bangladesh
+### 🌿 AmarPlants — E-commerce Mobile App
 
-`Flutter` `Dart` `Riverpod` `go_router` `drift`
+`Flutter`
 
-> 🔒 **Confidential industry project.** The source code is in a private repository and is not shared. The image below shows the app's public-facing interface only.
+> 🔒 **Confidential industry project.** The source code is in a private repository and the product details are not shared.
 
-One plant goes by many names: বাগানবিলাস, Bougainvillea, *Bougainvillea glabra*, or a nursery's variety name like Adarna. I built the **Flutter buyer app** for AmarPlants, a multi-vendor plant marketplace: buyers search however they know the plant and buy it from a verified seller nearby.
+Designed and built the **Flutter mobile app** for a multi-vendor e-commerce marketplace.
 
-<img src="assets/amarplants-showcase.webp" alt="AmarPlants Flutter buyer app" />
-
-**What it does**
-
-| | |
-|---|---|
-| One search, every name | Bangla, English, scientific and variety names in one search, tolerant of typos and Banglish |
-| Sellers near you | Nurseries ordered by distance from the buyer's delivery area |
-| Deals | Time-limited discounts with a live countdown on each listing |
-| Bilingual | Every screen in Bangla and English, Bangla-first |
-
-**Stack**: Flutter with Riverpod (code generation), go_router and freezed · drift for the cart, wishlist and recent searches on the device · Android-first.
-
-*Status: in active development. Source code private.*
+<img src="assets/amarplants-showcase.webp" alt="AmarPlants" />
 
 ---
 
