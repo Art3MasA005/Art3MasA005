@@ -108,6 +108,31 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 ## Featured Projects
 
+### 🌿 AmarPlants — Multi-Vendor Plant Marketplace for Bangladesh
+
+`Flutter` `Riverpod` `Next.js` `Laravel` `PostgreSQL/PostGIS`
+
+> 🔒 **Confidential industry project.** The source code is in a private repository and is not shared. The images below show the public-facing interface only.
+
+One plant goes by many names: বাগানবিলাস, Bougainvillea, *Bougainvillea glabra*, or a nursery's variety name like Adarna. AmarPlants lets buyers search however they know the plant and buy it from a verified seller nearby. Sellers pay a flat monthly subscription and **no commission**.
+
+<img src="assets/amarplants-showcase.webp" alt="AmarPlants website and buyer app" />
+
+**What it does**
+
+| | |
+|---|---|
+| One search, every name | Bangla, English, scientific and variety names in one search, tolerant of typos and Banglish |
+| Sellers near you | Nurseries ordered by distance from the buyer's delivery area |
+| Deals | Time-limited discounts with a live countdown on each listing |
+| Bilingual | Every screen in Bangla and English, Bangla-first |
+
+**Stack**: Flutter buyer app (Riverpod, go_router, drift), Next.js website with server-rendered catalogue pages, and one Laravel API on PostgreSQL + PostGIS behind all of them.
+
+*Status: in active development. Source code private.*
+
+---
+
 ### 🛡️ SentinelAI — Intrusion Detection Under Drift and Unseen Attacks
 
 `Python` `FastAPI` `scikit-learn` `LightGBM` `PyTorch` `Flutter`
