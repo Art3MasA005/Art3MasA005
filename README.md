@@ -133,6 +133,80 @@ One plant goes by many names: বাগানবিলাস, Bougainvillea, *Bo
 
 ---
 
+### 🤖 Sora — Self-Hosted Personal AI Assistant
+
+`Python` `FastAPI` `Flutter` `PostgreSQL` `pgvector` `Android` `Windows`
+
+A **full-stack, self-hosted AI assistant** that runs on a personal Windows PC and an Android phone simultaneously. Talk to it by text or voice, in English, Bangla or a mix of both — it controls both devices, automates Google Workspace, remembers people and facts, runs routines on its own, and asks before doing anything risky.
+
+<img src="assets/sora_Github.jpg" alt="Sora" width="100%" />
+
+**What it does**
+
+| Capability | Detail |
+|---|---|
+| **Google Workspace** | Read, search, draft and send Gmail · manage Calendar · create Docs, Sheets, Slides · find Drive files · keep a Tasks list |
+| **PC control** | Open apps, browse the web, read and write files, run VS Code tasks, take and crop screenshots, control the clipboard |
+| **Phone control** | Make calls and send texts by contact name, ring the phone, lock the screen, take a screenshot and beam it to the PC |
+| **Routines** | Plain-language triggers: a schedule, an incoming email, a low battery, a web-page change, or a WhatsApp message |
+| **Memory** | Stores people (relation, nickname, number, birthday) and facts, recalled automatically by name |
+| **Voice** | Custom-trained "Hey Sora" wake word in the owner's accent · Whisper STT · Edge TTS · corner orb on the PC |
+| **Approval-first** | Sends, deletes and shutdowns always show the full action and wait — never executes silently |
+| **Cross-device** | Shared clipboard, phone notifications mirrored to the PC as Windows toasts, phone battery and storage visible in the sidebar |
+
+**Engineering decisions worth reading about**
+
+- **One LLM loop, two devices.** The agent runs on the PC but can ask the phone to act, and vice versa, over a persistent WebSocket with per-device revocable tokens. The device that owns the action executes it; the other gets the result.
+- **Approval cards are structural, not advisory.** Risky tool calls return an `awaiting_approval` response that the client renders as a blocking card — the tool cannot continue until the owner taps Approve or Reject, even if the LLM tries to call it again.
+- **"Hey Sora" trained on the owner's voice.** The wake-word model is a small ONNX binary trained on recordings in the owner's Bangla-accented English, so it fires reliably in the owner's accent and not on similar English words said by others.
+- **Bilingual end to end.** Every screen, label, error and AI reply is in English or Bangla, switchable at runtime — including the Flutter app on both Android and Windows and every string in the FastAPI backend.
+- **Self-hosted and secret-safe.** All data stays on the owner's machine. Google OAuth tokens are Fernet-encrypted at rest. A gitleaks pre-commit hook blocks any commit that contains a key.
+
+**Stack** — FastAPI + PostgreSQL/pgvector backend · Flutter for Android and Windows · Java Android accessibility service for the background phone link · Python PC agent (keyboard, mouse, files, browser, VS Code) · custom ONNX wake-word model · OpenAI-compatible LLM interface (any provider)
+
+🔗 [Repository](https://github.com/Art3MasA005/sora-assistant)
+---
+
+### 📒 Ledgerly — Small Business Ledger for Bangladesh (v2.0.1)
+
+`Flutter` `Riverpod 3` `Drift/SQLite` `Firebase Auth` `Cloud Firestore` `Cloud Functions`
+
+A shopkeeper's credit book (*baki khata*) on the phone. Customers and suppliers, who owes whom, daily cash, invoices and stock — in **Bangla or English**, and fully usable with **no internet connection**. Every entry is written to a local SQLite database first; the cloud is a backup, never a dependency.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/home.png" width="155" alt="Ledger home" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/party_ledger.png" width="155" alt="Customer ledger" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/cashbox.png" width="155" alt="Cashbox" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/analytics.png" width="155" alt="Analytics" />
+  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/menu.png" width="155" alt="Menu" />
+</p>
+
+**What it does**
+
+| | |
+|---|---|
+| Customer & supplier ledger | Running balance per party, cash sales, photo of the paper receipt, built-in calculator keypad |
+| Cashbox | Daily in/out by category, and reconciliation against the cash actually in the drawer |
+| Invoices & statements | Itemised invoices and party statements as A4 PDFs with one shared branded header, ready to share |
+| Stock, notes, analytics | Stock in/out per product, business notes, and growth charts drawn with `CustomPainter` |
+| Multi-business | Several shops in one account, each with its own isolated books |
+| Bilingual | Every screen, amount and date in Bangla or English, switchable at any time |
+
+**Problems worth reading about**
+
+- **A backup that silently stopped working.** A Firestore document is capped at 1 MiB, so a single-document backup works in testing and then quietly stops uploading once a real shop's ledger grows. Backups are now gzip-compressed JSON split into sub-1 MB parts, with photos chunked the same way.
+- **"Couldn't read the cloud" is not "there is no backup."** Treating a network error as an empty cloud starts a blank ledger that then overwrites the real one. Read failures are thrown, never defaulted, and every backup carries an id, so a phone refuses to upload over a backup written by another phone it hasn't seen yet.
+- **Two phones, one account, no ping-pong.** A restore fires the same database-change events as a user edit; without suppression, two phones would keep re-uploading each other's data. Restores are fenced off from the auto-backup trigger.
+- **Shared phones can't leak data.** The local database records which account owns it, and the local backup file is scoped to the signed-in account, so signing in as someone else never surfaces the previous user's books.
+
+**Engineering** — feature-first structure across 12 modules · Drift schema v8 with migrations · per-user Firestore security rules.
+
+*Status: v2.0.1 is preparing for its first Google Play release; the repository still holds the earlier v1 snapshot until then.*
+
+🔗 [Repository](https://github.com/Art3MasA005/Ledgerly-Business-Finance-Manager)
+
+---
+
 ### 🛡️ SentinelAI — Intrusion Detection Under Drift and Unseen Attacks
 
 `Python` `FastAPI` `scikit-learn` `LightGBM` `PyTorch` `Flutter`
@@ -214,40 +288,6 @@ Eleven questions, no blood test, about two minutes — and back comes a **calibr
 
 ---
 
-### 🤖 Sora — Self-Hosted Personal AI Assistant
-
-`Python` `FastAPI` `Flutter` `PostgreSQL` `pgvector` `Android` `Windows`
-
-A **full-stack, self-hosted AI assistant** that runs on a personal Windows PC and an Android phone simultaneously. Talk to it by text or voice, in English, Bangla or a mix of both — it controls both devices, automates Google Workspace, remembers people and facts, runs routines on its own, and asks before doing anything risky.
-
-<img src="assets/sora_Github.jpg" alt="Sora" width="100%" />
-
-**What it does**
-
-| Capability | Detail |
-|---|---|
-| **Google Workspace** | Read, search, draft and send Gmail · manage Calendar · create Docs, Sheets, Slides · find Drive files · keep a Tasks list |
-| **PC control** | Open apps, browse the web, read and write files, run VS Code tasks, take and crop screenshots, control the clipboard |
-| **Phone control** | Make calls and send texts by contact name, ring the phone, lock the screen, take a screenshot and beam it to the PC |
-| **Routines** | Plain-language triggers: a schedule, an incoming email, a low battery, a web-page change, or a WhatsApp message |
-| **Memory** | Stores people (relation, nickname, number, birthday) and facts, recalled automatically by name |
-| **Voice** | Custom-trained "Hey Sora" wake word in the owner's accent · Whisper STT · Edge TTS · corner orb on the PC |
-| **Approval-first** | Sends, deletes and shutdowns always show the full action and wait — never executes silently |
-| **Cross-device** | Shared clipboard, phone notifications mirrored to the PC as Windows toasts, phone battery and storage visible in the sidebar |
-
-**Engineering decisions worth reading about**
-
-- **One LLM loop, two devices.** The agent runs on the PC but can ask the phone to act, and vice versa, over a persistent WebSocket with per-device revocable tokens. The device that owns the action executes it; the other gets the result.
-- **Approval cards are structural, not advisory.** Risky tool calls return an `awaiting_approval` response that the client renders as a blocking card — the tool cannot continue until the owner taps Approve or Reject, even if the LLM tries to call it again.
-- **"Hey Sora" trained on the owner's voice.** The wake-word model is a small ONNX binary trained on recordings in the owner's Bangla-accented English, so it fires reliably in the owner's accent and not on similar English words said by others.
-- **Bilingual end to end.** Every screen, label, error and AI reply is in English or Bangla, switchable at runtime — including the Flutter app on both Android and Windows and every string in the FastAPI backend.
-- **Self-hosted and secret-safe.** All data stays on the owner's machine. Google OAuth tokens are Fernet-encrypted at rest. A gitleaks pre-commit hook blocks any commit that contains a key.
-
-**Stack** — FastAPI + PostgreSQL/pgvector backend · Flutter for Android and Windows · Java Android accessibility service for the background phone link · Python PC agent (keyboard, mouse, files, browser, VS Code) · custom ONNX wake-word model · OpenAI-compatible LLM interface (any provider)
-
-🔗 [Repository](https://github.com/Art3MasA005/sora-assistant)
----
-
 ### 🌾 Crop Doctor BD — On-Device Plant Disease Detection
 
 `Python` `TensorFlow Lite` `Flutter`
@@ -268,46 +308,6 @@ Most plant-disease projects report 99% on PlantVillage and stop. That number is 
 *Status: ML pipeline complete and verified end-to-end; Flutter client in progress.*
 
 🔗 [Repository](https://github.com/Art3MasA005/crop-doctor-bd)
-
----
-
-### 📒 Ledgerly — Small Business Ledger for Bangladesh (v2.0.1)
-
-`Flutter` `Riverpod 3` `Drift/SQLite` `Firebase Auth` `Cloud Firestore` `Cloud Functions`
-
-A shopkeeper's credit book (*baki khata*) on the phone. Customers and suppliers, who owes whom, daily cash, invoices and stock — in **Bangla or English**, and fully usable with **no internet connection**. Every entry is written to a local SQLite database first; the cloud is a backup, never a dependency.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/home.png" width="155" alt="Ledger home" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/party_ledger.png" width="155" alt="Customer ledger" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/cashbox.png" width="155" alt="Cashbox" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/analytics.png" width="155" alt="Analytics" />
-  <img src="https://raw.githubusercontent.com/Art3MasA005/Ledgerly-Business-Finance-Manager/master/docs/screenshots/menu.png" width="155" alt="Menu" />
-</p>
-
-**What it does**
-
-| | |
-|---|---|
-| Customer & supplier ledger | Running balance per party, cash sales, photo of the paper receipt, built-in calculator keypad |
-| Cashbox | Daily in/out by category, and reconciliation against the cash actually in the drawer |
-| Invoices & statements | Itemised invoices and party statements as A4 PDFs with one shared branded header, ready to share |
-| Stock, notes, analytics | Stock in/out per product, business notes, and growth charts drawn with `CustomPainter` |
-| Multi-business | Several shops in one account, each with its own isolated books |
-| Bilingual | Every screen, amount and date in Bangla or English, switchable at any time |
-
-**Problems worth reading about**
-
-- **A backup that silently stopped working.** A Firestore document is capped at 1 MiB, so a single-document backup works in testing and then quietly stops uploading once a real shop's ledger grows. Backups are now gzip-compressed JSON split into sub-1 MB parts, with photos chunked the same way.
-- **"Couldn't read the cloud" is not "there is no backup."** Treating a network error as an empty cloud starts a blank ledger that then overwrites the real one. Read failures are thrown, never defaulted, and every backup carries an id, so a phone refuses to upload over a backup written by another phone it hasn't seen yet.
-- **Two phones, one account, no ping-pong.** A restore fires the same database-change events as a user edit; without suppression, two phones would keep re-uploading each other's data. Restores are fenced off from the auto-backup trigger.
-- **Shared phones can't leak data.** The local database records which account owns it, and the local backup file is scoped to the signed-in account, so signing in as someone else never surfaces the previous user's books.
-
-**Engineering** — feature-first structure across 12 modules · Drift schema v8 with migrations · per-user Firestore security rules.
-
-*Status: v2.0.1 is preparing for its first Google Play release; the repository still holds the earlier v1 snapshot until then.*
-
-🔗 [Repository](https://github.com/Art3MasA005/Ledgerly-Business-Finance-Manager)
 
 ---
 
