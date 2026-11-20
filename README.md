@@ -194,6 +194,41 @@ A shopkeeper's credit book (*baki khata*) on the phone. Customers and suppliers,
 
 ---
 
+### 💜 Lumo — Bilingual Mobile Wallet for Bangladesh
+
+`Flutter` `Riverpod 3` `go_router` `ML Kit` `local_auth` `Secure Storage`
+
+> 🔒 **Private repository.** The front end is complete and tested; the backend is the next phase.
+
+A mobile wallet in **English and Bangla**: send money, cash out, pay bills, manage cards and savings goals. The identity check **reads the NID or passport photo on the device** and fills in the number and date of birth for the user, and the app unlocks with Face ID or a PIN.
+
+<p align="center">
+  <img src="assets/lumo/home.webp" width="155" alt="Home wallet" />
+  <img src="assets/lumo/kyc_filled.webp" width="155" alt="NID details read from the photo" />
+  <img src="assets/lumo/send_done.webp" width="155" alt="Send successful" />
+  <img src="assets/lumo/cards.webp" width="155" alt="Cards and limits" />
+  <img src="assets/lumo/home_bn.webp" width="155" alt="Home in Bangla" />
+</p>
+
+**What it does**
+
+| | |
+|---|---|
+| Identity (KYC) | NID or passport photo from the camera or gallery; the number and date of birth are read on the device and marked *Auto-filled*, then a 4-step face scan |
+| Money flows | Send, cash out, request, pay bill, add money — keypad, review, slide to confirm, PIN or Face ID, receipt |
+| Insights | Spending by week, month and year and by category; activity with search, requests and scheduled payments |
+| Cards | Debit, virtual and savings cards; reveal, freeze, per-transaction and daily limits |
+| Security | Biometric unlock with PIN fallback, auto-lock after 5 minutes away, growing lockout after wrong PINs, app preview hidden in Recents |
+| Bilingual | Every screen in English or Bangla, including Bangla digits, at 200% text size and with reduced motion |
+
+**Engineering worth reading about**
+
+- **ID photos never leave the phone.** On-device text recognition, then a parser for the NID label and 10/13/17-digit numbers, or the passport MRZ with its 7-3-1 check digits. It corrects common OCR slips and refuses impossible or under-18 birth dates instead of filling them in.
+- **Ready for a backend without touching the UI.** Screens talk to Riverpod controllers, controllers to repository interfaces; each has a demo implementation today, and every screen has loading, empty, error and data states.
+- **Device features behind interfaces.** Biometrics, camera, gallery and text recognition are injected, so **815 automated tests** run them with fakes.
+
+---
+
 ### 🛡️ SentinelAI — Intrusion Detection Under Drift and Unseen Attacks
 
 `Python` `FastAPI` `scikit-learn` `LightGBM` `PyTorch` `Flutter`
