@@ -120,6 +120,46 @@ Designed and built the **Flutter mobile app** for a multi-vendor e-commerce mark
 
 ---
 
+### 💜 Lumo — Bilingual Digital Wallet with On-Device ID Scanning
+
+`Flutter` `Riverpod 3` `go_router` `ML Kit` `local_auth` `Secure Storage`
+
+> 🔒 **Private repository.** The front end is complete and tested; the backend is the next phase.
+
+A digital wallet in **English and Bangla**. Highlights:
+
+- 📷 **ID scanning on the device** — photograph a national ID or passport and the number and date of birth fill themselves in, marked *Auto-filled*
+- 🔐 **Face ID or PIN unlock** — locks itself after 5 minutes away, with a growing lockout after wrong PINs
+- 💸 **Slide-to-confirm payments** — send, cash out, request, pay bills and add money, each confirmed with PIN or Face ID
+- 💳 **Card controls and insights** — freeze cards, set limits, and see spending by week, month, year and category
+
+<p align="center">
+  <img src="assets/lumo/home.webp" width="155" alt="Home wallet" />
+  <img src="assets/lumo/kyc_filled.webp" width="155" alt="NID details read from the photo" />
+  <img src="assets/lumo/send_done.webp" width="155" alt="Send successful" />
+  <img src="assets/lumo/cards.webp" width="155" alt="Cards and limits" />
+  <img src="assets/lumo/home_bn.webp" width="155" alt="Home in Bangla" />
+</p>
+
+**What it does**
+
+| | |
+|---|---|
+| Identity (KYC) | NID or passport photo from the camera or gallery; the number and date of birth are read on the device and marked *Auto-filled*, then a 4-step face scan |
+| Money flows | Send, cash out, request, pay bill, add money — keypad, review, slide to confirm, PIN or Face ID, receipt |
+| Insights | Spending by week, month and year and by category; activity with search, requests and scheduled payments |
+| Cards | Debit, virtual and savings cards; reveal, freeze, per-transaction and daily limits |
+| Security | Biometric unlock with PIN fallback, auto-lock after 5 minutes away, growing lockout after wrong PINs, app preview hidden in Recents |
+| Bilingual | Every screen in English or Bangla, including Bangla digits, at 200% text size and with reduced motion |
+
+**Engineering worth reading about**
+
+- **ID photos never leave the phone.** On-device text recognition, then a parser for the NID label and 10/13/17-digit numbers, or the passport MRZ with its 7-3-1 check digits. It corrects common OCR slips and refuses impossible or under-18 birth dates instead of filling them in.
+- **Ready for a backend without touching the UI.** Screens talk to Riverpod controllers, controllers to repository interfaces; each has a demo implementation today, and every screen has loading, empty, error and data states.
+- **Device features behind interfaces.** Biometrics, camera, gallery and text recognition are injected, so **815 automated tests** run them with fakes.
+
+---
+
 ### 🤖 Sora — Self-Hosted Personal AI Assistant
 
 `Python` `FastAPI` `Flutter` `PostgreSQL` `pgvector` `Android` `Windows`
@@ -191,46 +231,6 @@ A shopkeeper's credit book (*baki khata*) on the phone. Customers and suppliers,
 *Status: v2.0.1 is preparing for its first Google Play release; the repository still holds the earlier v1 snapshot until then.*
 
 🔗 [Repository](https://github.com/Art3MasA005/Ledgerly-Business-Finance-Manager)
-
----
-
-### 💜 Lumo — Bilingual Digital Wallet with On-Device ID Scanning
-
-`Flutter` `Riverpod 3` `go_router` `ML Kit` `local_auth` `Secure Storage`
-
-> 🔒 **Private repository.** The front end is complete and tested; the backend is the next phase.
-
-A digital wallet in **English and Bangla**. Highlights:
-
-- 📷 **ID scanning on the device** — photograph a national ID or passport and the number and date of birth fill themselves in, marked *Auto-filled*
-- 🔐 **Face ID or PIN unlock** — locks itself after 5 minutes away, with a growing lockout after wrong PINs
-- 💸 **Slide-to-confirm payments** — send, cash out, request, pay bills and add money, each confirmed with PIN or Face ID
-- 💳 **Card controls and insights** — freeze cards, set limits, and see spending by week, month, year and category
-
-<p align="center">
-  <img src="assets/lumo/home.webp" width="155" alt="Home wallet" />
-  <img src="assets/lumo/kyc_filled.webp" width="155" alt="NID details read from the photo" />
-  <img src="assets/lumo/send_done.webp" width="155" alt="Send successful" />
-  <img src="assets/lumo/cards.webp" width="155" alt="Cards and limits" />
-  <img src="assets/lumo/home_bn.webp" width="155" alt="Home in Bangla" />
-</p>
-
-**What it does**
-
-| | |
-|---|---|
-| Identity (KYC) | NID or passport photo from the camera or gallery; the number and date of birth are read on the device and marked *Auto-filled*, then a 4-step face scan |
-| Money flows | Send, cash out, request, pay bill, add money — keypad, review, slide to confirm, PIN or Face ID, receipt |
-| Insights | Spending by week, month and year and by category; activity with search, requests and scheduled payments |
-| Cards | Debit, virtual and savings cards; reveal, freeze, per-transaction and daily limits |
-| Security | Biometric unlock with PIN fallback, auto-lock after 5 minutes away, growing lockout after wrong PINs, app preview hidden in Recents |
-| Bilingual | Every screen in English or Bangla, including Bangla digits, at 200% text size and with reduced motion |
-
-**Engineering worth reading about**
-
-- **ID photos never leave the phone.** On-device text recognition, then a parser for the NID label and 10/13/17-digit numbers, or the passport MRZ with its 7-3-1 check digits. It corrects common OCR slips and refuses impossible or under-18 birth dates instead of filling them in.
-- **Ready for a backend without touching the UI.** Screens talk to Riverpod controllers, controllers to repository interfaces; each has a demo implementation today, and every screen has loading, empty, error and data states.
-- **Device features behind interfaces.** Biometrics, camera, gallery and text recognition are injected, so **815 automated tests** run them with fakes.
 
 ---
 
