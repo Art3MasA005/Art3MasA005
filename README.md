@@ -194,13 +194,18 @@ A shopkeeper's credit book (*baki khata*) on the phone. Customers and suppliers,
 
 ---
 
-### 💜 Lumo — Bilingual Mobile Wallet for Bangladesh
+### 💜 Lumo — Bilingual Digital Wallet with On-Device ID Scanning
 
 `Flutter` `Riverpod 3` `go_router` `ML Kit` `local_auth` `Secure Storage`
 
 > 🔒 **Private repository.** The front end is complete and tested; the backend is the next phase.
 
-A mobile wallet in **English and Bangla**: send money, cash out, pay bills, manage cards and savings goals. The identity check **reads the NID or passport photo on the device** and fills in the number and date of birth for the user, and the app unlocks with Face ID or a PIN.
+A digital wallet in **English and Bangla**. Highlights:
+
+- 📷 **ID scanning on the device** — photograph a national ID or passport and the number and date of birth fill themselves in, marked *Auto-filled*
+- 🔐 **Face ID or PIN unlock** — locks itself after 5 minutes away, with a growing lockout after wrong PINs
+- 💸 **Slide-to-confirm payments** — send, cash out, request, pay bills and add money, each confirmed with PIN or Face ID
+- 💳 **Card controls and insights** — freeze cards, set limits, and see spending by week, month, year and category
 
 <p align="center">
   <img src="assets/lumo/home.webp" width="155" alt="Home wallet" />
