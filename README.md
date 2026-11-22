@@ -120,6 +120,7 @@ Designed and built the **Flutter mobile app** for a multi-vendor e-commerce mark
 
 ---
 
+<!-- Lumo hidden for now (restore by removing this comment wrapper); assets/lumo kept
 ### 💜 Lumo — Bilingual Digital Wallet with On-Device ID Scanning
 
 `Flutter` `Riverpod 3` `go_router` `ML Kit` `local_auth` `Secure Storage`
@@ -159,6 +160,7 @@ A digital wallet in **English and Bangla**. Highlights:
 - **Device features behind interfaces.** Biometrics, camera, gallery and text recognition are injected, so **815 automated tests** run them with fakes.
 
 ---
+-->
 
 ### 🤖 Sora — Self-Hosted Personal AI Assistant
 
