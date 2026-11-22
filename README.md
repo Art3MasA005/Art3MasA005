@@ -108,7 +108,6 @@ I build **cross-platform mobile applications** and the **intelligence that runs 
 
 ## Featured Projects
 
-<!-- AmarPlants hidden for now (restore by removing this comment wrapper); assets kept
 ### 🌿 AmarPlants — E-commerce Mobile App
 
 `Flutter`
@@ -120,7 +119,6 @@ Designed and built the **Flutter mobile app** for a multi-vendor e-commerce mark
 <img src="assets/amarplants-showcase.webp" alt="AmarPlants" />
 
 ---
--->
 
 <!-- Lumo hidden for now (restore by removing this comment wrapper); assets/lumo kept
 ### 💜 Lumo — Bilingual Digital Wallet with On-Device ID Scanning
