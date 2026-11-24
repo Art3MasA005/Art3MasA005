@@ -296,14 +296,14 @@ Eleven questions, no blood test, about two minutes — and back comes a **calibr
 
 - 📷 **Calorie estimate from a photo** — AI finds each food on the plate, boxes it and estimates the portion; the user confirms every item, the total is a range, and the photo is never stored
 - 💬 **AI coach that already knows you** — answers from the user's own profile, meals, glucose readings and steps, in English or Bangla; medication questions are stopped by a safety guard before they reach the model
-- 🍛 **Calorie tracker** — calories and carbs against a goal kept inside safe limits, glycemic load, water, and food search in Bangla, English or *murgir jhol*-style transliteration
+- 🍛 **Calorie and carb tracker** — calories and carbohydrates against goals kept inside safe limits, glycemic load, water, and food search in Bangla, English or *murgir jhol*-style transliteration
 
 <p align="center">
   <img src="assets/diavision/home.webp" width="155" alt="Home with the risk trend" />
   <img src="assets/diavision/risk.webp" width="155" alt="Risk result with lab interpretation" />
   <img src="assets/diavision/scan_review.webp" width="155" alt="Foods found on a photographed plate" />
   <img src="assets/diavision/coach.webp" width="155" alt="AI coach answering from the user's data" />
-  <img src="assets/diavision/tracker.webp" width="155" alt="Calorie tracker" />
+  <img src="assets/diavision/tracker.webp" width="155" alt="Calorie and carb tracker" />
 </p>
 
 **Model results**
