@@ -290,9 +290,21 @@ Two mitigations are implemented and measured against each other: a shared cross-
 
 ### 🩺 DiaVision — Diabetes Risk Screening
 
-`Python` `FastAPI` `PostgreSQL` `Flutter` `ONNX`
+`Python` `FastAPI` `PostgreSQL` `Flutter` `ONNX` `LLM`
 
 Eleven questions, no blood test, about two minutes — and back comes a **calibrated risk range** for undetected high blood sugar, plus the two or three things a person can actually change. English and Bangla. Bangladesh-first, built as a localisation engine.
+
+- 📷 **Calorie estimate from a photo** — AI finds each food on the plate, boxes it and estimates the portion; the user confirms every item, the total is a range, and the photo is never stored
+- 💬 **AI coach that already knows you** — answers from the user's own profile, meals, glucose readings and steps, in English or Bangla; medication questions are stopped by a safety guard before they reach the model
+- 🍛 **Calorie tracker** — calories and carbs against a goal kept inside safe limits, glycemic load, water, and food search in Bangla, English or *murgir jhol*-style transliteration
+
+<p align="center">
+  <img src="assets/diavision/home.webp" width="155" alt="Home with the risk trend" />
+  <img src="assets/diavision/risk.webp" width="155" alt="Risk result with lab interpretation" />
+  <img src="assets/diavision/scan_review.webp" width="155" alt="Foods found on a photographed plate" />
+  <img src="assets/diavision/coach.webp" width="155" alt="AI coach answering from the user's data" />
+  <img src="assets/diavision/tracker.webp" width="155" alt="Calorie tracker" />
+</p>
 
 **Model results**
 
@@ -307,7 +319,7 @@ Eleven questions, no blood test, about two minutes — and back comes a **calibr
 - **I rejected a 0.94 AUC model.** Three extra features would have lifted the headline from 0.806 to 0.9365 — and made it *0.18 AUC worse* on people who have never been screened, which is exactly who the product is for. Leakage audit, documented.
 - **Waist beat volume.** Training on 5,843 NHANES rows (89% waist circumference) beat 437,000 pooled rows (1.2%) on the metric that mattered — 66.9% vs 52.9% specificity at 85% sensitivity.
 
-**Engineering** — FastAPI + PostgreSQL with alembic migrations and row-level security · Flutter client with 19 screens in EN + BN, light + dark · **143 backend tests, 55 Flutter tests, 28 screen goldens** · feature contract frozen in `feature_spec.json` before the schema was written against it · three unfinished features say so on screen rather than faking it.
+**Engineering** — FastAPI + PostgreSQL with alembic migrations and row-level security · Flutter client in EN + BN, light + dark · vision and coach on an LLM through OpenRouter, behind red-flag, medication and dose guards · **179 backend tests, 73 Flutter tests including 44 screen goldens** · feature contract frozen in `feature_spec.json` before the schema was written against it.
 
 > Not a medical device. It does not diagnose or treat anything and has been reviewed by no medical regulator.
 
