@@ -120,18 +120,19 @@ Designed and built the **Flutter mobile app** for a multi-vendor e-commerce mark
 
 ---
 
-### 💜 Lumo — Bilingual Digital Wallet with On-Device ID Scanning
+### 💜 Lumo — Bilingual Digital Wallet on a Double-Entry Ledger
 
-`Flutter` `Riverpod 3` `go_router` `ML Kit` `local_auth` `Secure Storage`
+`Flutter` `Riverpod 3` `go_router` `Supabase` `PostgreSQL` `ML Kit` `local_auth`
 
-> 🔒 **Private repository.** The front end is complete and tested; the backend is the next phase.
+> 🔒 **Private repository.** Complete: Flutter app and Supabase backend. Bank, card and payment-gateway connections are simulated, so no real money moves.
 
-A digital wallet in **English and Bangla**. Highlights:
+A digital wallet in **English and Bangla**, built on a PostgreSQL double-entry ledger. Highlights:
 
+- 💸 **Payments that can't charge twice** — send, cash out, request, pay bills and add money; each transfer is written as balanced ledger entries, and a retried payment is applied only once
 - 📷 **ID scanning on the device** — photograph a national ID or passport and the number and date of birth fill themselves in, marked *Auto-filled*
-- 🔐 **Face ID or PIN unlock** — locks itself after 5 minutes away, with a growing lockout after wrong PINs
-- 💸 **Slide-to-confirm payments** — send, cash out, request, pay bills and add money, each confirmed with PIN or Face ID
-- 💳 **Card controls and insights** — freeze cards, set limits, and see spending by week, month, year and category
+- 🔐 **PIN checked on the server** — Face ID or PIN unlock; the PIN is stored as a bcrypt hash, and each run of wrong tries locks it for longer
+- 📱 **Trusted devices** — see every signed-in phone with its country, sign one out remotely, and get an alert when a new one signs in
+- 🎯 **Goals, splits and schedules** — savings goals, bill splits, money requests and scheduled payments, plus a dark theme
 
 <p align="center">
   <img src="assets/lumo/home.webp" width="155" alt="Home wallet" />
@@ -145,18 +146,23 @@ A digital wallet in **English and Bangla**. Highlights:
 
 | | |
 |---|---|
-| Identity (KYC) | NID or passport photo from the camera or gallery; the number and date of birth are read on the device and marked *Auto-filled*, then a 4-step face scan |
-| Money flows | Send, cash out, request, pay bill, add money — keypad, review, slide to confirm, PIN or Face ID, receipt |
-| Insights | Spending by week, month and year and by category; activity with search, requests and scheduled payments |
+| Identity (KYC) | NID or passport photo from the camera or gallery; the number and date of birth are read on the device and marked *Auto-filled*, then a 4-step face scan, then submitted for review |
+| Money flows | Send, cash out, request, pay bill, and add money from a linked bank, card or mobile wallet — keypad, review, slide to confirm, PIN or Face ID, receipt |
+| Saving & sharing | Savings goals you can pay into and withdraw from, bill splits that can be cancelled, money requests, and scheduled payments you can edit or delete |
+| Insights | Spending by week, month and year and by category, worked out on the server; activity with search |
 | Cards | Debit, virtual and savings cards; reveal, freeze, per-transaction and daily limits |
-| Security | Biometric unlock with PIN fallback, auto-lock after 5 minutes away, growing lockout after wrong PINs, app preview hidden in Recents |
-| Bilingual | Every screen in English or Bangla, including Bangla digits, at 200% text size and with reduced motion |
+| Security | Email-code sign-in, server-checked PIN with growing lockout, trusted devices with remote sign-out, new-device alerts, auto-lock after 5 minutes away, app preview hidden in Recents |
+| Bilingual | Every screen in English or Bangla, including Bangla digits, in light or dark theme, at 200% text size and with reduced motion |
 
 **Engineering worth reading about**
 
+- **A ledger that has to balance.** Every transfer writes debit and credit entries, and deferred constraint triggers reject, at commit, any transaction whose entries don't sum to zero. Wallet rows are locked (`SELECT … FOR UPDATE`), so parallel payments from one wallet can't overspend; this was tested by firing concurrent requests at the live API. A nightly pg_cron job rebuilds each balance from its entries and records any mismatch.
+- **Idempotent money moves.** Each payment carries an idempotency key, so a repeated request returns the first result instead of moving money again.
+- **The database decides.** Row Level Security is on every table; the app calls 45 Postgres functions and never writes to a table directly. Fees, daily and monthly limits and rate limits are enforced in the database, and moving money needs a short-lived grant from a correct PIN.
+- **Signing a device out really ends it.** Its session is closed and its refresh tokens revoked on the server, so that phone can no longer refresh its session or pass the PIN check.
 - **ID photos never leave the phone.** On-device text recognition, then a parser for the NID label and 10/13/17-digit numbers, or the passport MRZ with its 7-3-1 check digits. It corrects common OCR slips and refuses impossible or under-18 birth dates instead of filling them in.
-- **Ready for a backend without touching the UI.** Screens talk to Riverpod controllers, controllers to repository interfaces; each has a demo implementation today, and every screen has loading, empty, error and data states.
-- **Device features behind interfaces.** Biometrics, camera, gallery and text recognition are injected, so **815 automated tests** run them with fakes.
+- **Layered, with dependency inversion (SOLID).** Clean Architecture-style layers: screens → Riverpod controllers → repository interfaces, with Supabase, demo and empty implementations behind each. The domain layer is pure Dart, and the same UI runs offline in demo mode or against the live backend.
+- **Tested at both ends.** **983 Flutter tests** use fakes for biometrics, camera and text recognition, and SQL tests run against the real database inside transactions that are rolled back.
 
 ---
 
