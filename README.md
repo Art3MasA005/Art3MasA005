@@ -140,7 +140,6 @@ A digital wallet in **English and Bangla**, built on a PostgreSQL double-entry l
   <img src="assets/lumo/kyc_filled.webp" width="155" alt="NID details read from the photo" />
   <img src="assets/lumo/send_done.webp" width="155" alt="Send successful" />
   <img src="assets/lumo/cards.webp" width="155" alt="Cards and limits" />
-  <img src="assets/lumo/home_bn.webp" width="155" alt="Home in Bangla" />
 </p>
 
 **What it does**
