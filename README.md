@@ -265,9 +265,17 @@ Intrusion detectors are trained once, then meet traffic that drifts and attack t
 
 ### 🔎 Bulletin — Bilingual Document Retrieval for Universities
 
-`FastAPI` `PostgreSQL/pgvector` `Flutter` `RAG`
+`FastAPI` `PostgreSQL/pgvector` `Flutter` `Riverpod` `RAG`
 
 An institution publishes its academic calendar, exam routines, fee schedules and notices once. Students and teachers ask in **English or Bangla** — optionally attaching their own class routine — and get answers grounded strictly in those documents, **with the page to prove every one**.
+
+<p align="center">
+  <img src="assets/bulletin/splash.gif" width="155" alt="Launch animation: a panda waves, then the wordmark appears" />
+  <img src="assets/bulletin/home.webp" width="155" alt="Home" />
+  <img src="assets/bulletin/model_menu.webp" width="155" alt="Choosing one of five models" />
+  <img src="assets/bulletin/chat_answer.webp" width="155" alt="A cited answer with source cards" />
+  <img src="assets/bulletin/settings.webp" width="155" alt="Settings" />
+</p>
 
 **The problem** — language mismatch between question and source is a *silent* retrieval failure. Hybrid search fuses a dense arm with a lexical arm; an English query and a Bangla chunk share **zero tokens**, so the lexical arm returns empty and search quietly collapses to dense alone — precisely where dense is least reliable, because Bangla PDFs in this region often use legacy ASCII-mapped fonts that extract as garbage. No exception, no warning, just a confident "not found."
 
@@ -280,7 +288,7 @@ Two mitigations are implemented and measured against each other: a shared cross-
 | Cross-lingual top-1 rank accuracy (20 domain pairs) | **100%**, cosine margin **+0.386** |
 | Hybrid ablation | dense owns prose (MRR 0.98) · lexical owns course codes (0.94) · only the fusion never loses a document |
 | Gold set, 62 questions | **15/15** unanswerable refused · **0** answers invented a fact |
-| Tests | 363 backend · 35 Flutter |
+| Tests | 391 backend · 126 Flutter (Bangla at 200% text scale asserted) |
 
 **Correctness enforced structurally, not by convention**
 
@@ -288,7 +296,9 @@ Two mitigations are implemented and measured against each other: a shared cross-
 - **Chat attachments never enter the vector index.** The `attachments` table has no embedding column, so one student's personal routine can never be retrieved for another student's query.
 - **Below the retrieval score floor, the LLM is never called.** The plan returned in that case carries no messages — there is nothing to send.
 
-*Status: in progress. Backend pipeline, retrieval and streaming are complete and tested; the comparative ablation that would settle which mitigation wins is blocked on a real bilingual corpus — and the repo says so rather than hiding it.*
+**The app** — a Flutter client in orange, with a launch animation of a waving panda, a model picker (five cheap models, chosen by key from a server-side allow-list, so an OpenRouter id never reaches the phone), settings with an edge-swipe back, and an attach sheet that states the privacy rule where the choice is made.
+
+*Status: in progress. Backend pipeline, retrieval, streaming and most of the app are complete and tested; the chat thread redesign, source viewer and admin screens are pending. The comparative ablation that would settle which mitigation wins is blocked on a real bilingual corpus — and the repo says so rather than hiding it.*
 
 🔗 [Repository](https://github.com/Art3MasA005/Bulletin)
 
