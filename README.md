@@ -288,7 +288,7 @@ Two mitigations are implemented and measured against each other: a shared cross-
 | Cross-lingual top-1 rank accuracy (20 domain pairs) | **100%**, cosine margin **+0.386** |
 | Hybrid ablation | dense owns prose (MRR 0.98) · lexical owns course codes (0.94) · only the fusion never loses a document |
 | Gold set, 62 questions | **15/15** unanswerable refused · **0** answers invented a fact |
-| Tests | 391 backend · 126 Flutter (Bangla at 200% text scale asserted) |
+| Tests | 391 backend · 138 Flutter (Bangla at 200% text scale asserted) |
 
 **Correctness enforced structurally, not by convention**
 
@@ -296,9 +296,9 @@ Two mitigations are implemented and measured against each other: a shared cross-
 - **Chat attachments never enter the vector index.** The `attachments` table has no embedding column, so one student's personal routine can never be retrieved for another student's query.
 - **Below the retrieval score floor, the LLM is never called.** The plan returned in that case carries no messages — there is nothing to send.
 
-**The app** — a Flutter client in orange, with a launch animation of a waving panda, a model picker (five cheap models, chosen by key from a server-side allow-list, so an OpenRouter id never reaches the phone), settings with an edge-swipe back, and an attach sheet that states the privacy rule where the choice is made.
+**The app** — a Flutter client in orange, with a launch animation of a waving panda, a model picker (five cheap models, chosen by key from a server-side allow-list, so an OpenRouter id never reaches the phone), a chat thread with working steps, a streamed answer and sources that open in place, settings with an edge-swipe back, and an attach sheet that states the privacy rule where the choice is made.
 
-*Status: in progress. Backend pipeline, retrieval, streaming and most of the app are complete and tested; the chat thread redesign, source viewer and admin screens are pending. The comparative ablation that would settle which mitigation wins is blocked on a real bilingual corpus — and the repo says so rather than hiding it.*
+*Status: in progress. Backend pipeline, retrieval, streaming and most of the app are complete and tested; the source viewer and admin screens are pending. The comparative ablation that would settle which mitigation wins is blocked on a real bilingual corpus — and the repo says so rather than hiding it.*
 
 🔗 [Repository](https://github.com/Art3MasA005/Bulletin)
 
